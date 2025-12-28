@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 overflow-hidden bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer utilities {
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2.5 h-2.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded border-2 border-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+
+  /* Ensure cursor is always visible */
+  input,
+  textarea,
+  input[type="text"],
+  input[type="number"],
+  .react-flow__node input,
+  .react-flow__node textarea,
+  .base-node input,
+  .base-node textarea {
+    @apply caret-primary;
+  }
+}
+
+@layer components {
+  /* ReactFlow custom styles */
+  .react-flow__node {
+    @apply drop-shadow-sm transition-[filter] duration-200;
+  }
+
+  .react-flow__node:hover {
+    filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.15)) !important;
+  }
+
+  .react-flow__node.selected {
+    filter: drop-shadow(0 0 0 3px rgba(99, 102, 241, 0.5)) !important;
+  }
+
+  .react-flow__node.dragging {
+    @apply transition-none;
+    filter: drop-shadow(0 15px 30px rgba(99, 102, 241, 0.3)) !important;
+  }
+
+  /* Edge styles */
+  .react-flow__edge-path {
+    @apply stroke-primary;
+    stroke-width: 2.5;
+  }
+
+  .react-flow__edge.selected .react-flow__edge-path {
+    @apply stroke-pink-500;
+    stroke-width: 3;
+  }
+
+  .react-flow__edge:hover .react-flow__edge-path {
+    stroke-width: 3.5;
+  }
+
+  .react-flow__connectionline {
+    @apply stroke-primary;
+    stroke-width: 2.5;
+  }
+
+  /* Handle styles */
+  .react-flow__handle {
+    @apply w-3 h-3 border-[3px] border-white transition-all duration-200;
+  }
+
+  .react-flow__handle:hover {
+    @apply w-3.5 h-3.5;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  }
+
+  /* Controls */
+  .react-flow__controls {
+    @apply rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+  }
+
+  .react-flow__controls-button {
+    @apply bg-white border-none border-b border-gray-200 transition-all duration-200;
+  }
+
+  .react-flow__controls-button:hover {
+    @apply bg-gray-50;
+  }
+
+  .react-flow__controls-button svg {
+    @apply fill-gray-600;
+  }
+
+  .react-flow__controls-button:hover svg {
+    @apply fill-primary;
+  }
+
+  /* MiniMap */
+  .react-flow__minimap {
+    @apply rounded-xl shadow-lg border border-gray-200 bg-white;
+  }
+
+  .react-flow__background {
+    @apply bg-gray-50;
+  }
+}
+
